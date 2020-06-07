@@ -1,0 +1,14 @@
+[Unit]
+Description=SNMP Camera Alarm Server 
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/projects/smtp-cctv/notebook
+ExecStart=/home/pi/projects/smtp-cctv/bin/ipython3 CCTV_Mail.ipynb
+Restart=always
+RestartSec=60s
+
+[Install]
+WantedBy=multi-user.target
